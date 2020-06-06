@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>iframe</title>
+
+</head>
+
+<body>
+    <script>
+        clearOldRef();
+        const window_location = window.location.href;
+        var url = new URL(window_location);
+        var haptikInitSettings = {
+            'business-id': url.searchParams.get("business-id"),
+            'client-id': url.searchParams.get("client-id"),
+            'base-url': url.searchParams.get("base-url"),
+            'ignore-storage': true,
+            'mode': 'fsm',
+        };
+
+        function clearOldRef() {
+            var arr = [];
+            for (var i = 0; i < localStorage.length; i++) {
+                if (localStorage.key(i).indexOf('SAVED_TASKS') == -1) {
+                    arr.push(localStorage.key(i));
+                }
+            }
+            for (var i = 0; i < arr.length; i++) {
+                localStorage.removeItem(arr[i]);
+            }
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+        }
+
+    </script>
+    <script type="text/javascript" charset="UTF-8"
+        src="https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js">
+        </script>
+
+
+</body>
+
+</html>
