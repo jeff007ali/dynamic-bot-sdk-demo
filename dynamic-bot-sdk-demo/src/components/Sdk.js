@@ -18,7 +18,7 @@ class Sdk extends React.Component {
       <div>
         <div
           dangerouslySetInnerHTML={{
-            __html: `<iframe src=${url} height="500" width="500"/>`,
+            __html: `<iframe src=${url} />`,
           }}
         />
         {this.props.businessId}

@@ -10,9 +10,9 @@ class Config extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
-        businessId: e.target.businessId.value,
-        clientId: e.target.clientId.value,
-        baseUrl: e.target.baseUrl.value,
+      businessId: e.target.businessId.value,
+      clientId: e.target.clientId.value,
+      baseUrl: e.target.baseUrl.value,
     });
   };
   render() {
@@ -63,9 +63,10 @@ class Config extends React.Component {
           </div>
         </form>
         <Sdk
-        businessId={this.state.businessId}
-        clientId={this.state.clientId}
-        baseUrl={this.state.baseUrl}></Sdk>
+          businessId={this.state.businessId}
+          clientId={this.state.clientId}
+          baseUrl={this.state.baseUrl}
+        ></Sdk>
       </div>
     );
   }
