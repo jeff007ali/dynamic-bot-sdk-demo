@@ -1,0 +1,37 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  padding: 0;
+  background: linear-gradient(135deg, #27394c 0%, #3c5d80 50%, #5587bd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$mauve', endColorstr='$blush',GradientType=1 );
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+/* Scrollbar - start */
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/* Scrollbar - end */
