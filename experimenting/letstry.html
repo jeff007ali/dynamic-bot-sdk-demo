@@ -16,7 +16,7 @@
             <div class="column is-half">
               <div class="card box">
                 <div class="card-content">
-                  <div>
+                  <div class="main-card">
                     <div class="field">
                       <label class="label">Business Id</label>
                       <div class="control">
@@ -55,6 +55,41 @@
                         ></input>
                       </div>
                     </div>
+
+                    <label class="checkbox" disabled>
+                      <input type="checkbox" disabled>
+                      Enable custom signup
+                    </label>
+                    
+                    <div class="card box">
+                      <div class="card-content">
+                    <div class="field">
+                      <label class="label">Auth Id</label>
+                      <div class="control">
+                        <input
+                          class="input"
+                          placeholder="Please enter auth id"
+                          type="url"
+                          id="baseUrl"
+                          required
+                        ></input>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Auth Code</label>
+                      <div class="control">
+                        <input
+                          class="input"
+                          placeholder="Please enter auth code"
+                          type="url"
+                          id="baseUrl"
+                          required
+                        ></input>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
 
                     <div class="buttons is-right">
                       <button onClick="handleSubmit()" class="button is-primary">

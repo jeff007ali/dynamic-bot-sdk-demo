@@ -13,6 +13,13 @@ body {
           perspective: 1000px;
 }
 
+.main-card {
+  overflow: auto;
+  position: relative;
+  top: 30px;
+  bottom: 30px;
+}
+
 /* Scrollbar - start */
 /* width */
 ::-webkit-scrollbar {
