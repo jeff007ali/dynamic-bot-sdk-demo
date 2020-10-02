@@ -12,13 +12,15 @@
   <body>
     <script>
       clearOldRef();
-      const window_location = window.location.href;
-      var url = new URL(window_location);
+      // const window_location = window.location.href;
+      // var url = new URL(window_location);
+      var query_params = new URLSearchParams(window.location.search);
       var haptikInitSettings = {
-        "business-id": url.searchParams.get("business-id"),
-        "client-id": url.searchParams.get("client-id"),
-        "base-url": url.searchParams.get("base-url"),
-        "ignore-storage": true
+        "business-id": query_params.get("business-id"),
+        "client-id": query_params.get("client-id"),
+        "base-url": query_params.get("base-url"),
+        "ignore-storage": query_params.get("ignore-storage"),
+        "signup-type": query_params.get("signup_type") || "guest",
       };
 
       function clearOldRef() {
@@ -46,5 +48,33 @@
       charset="UTF-8"
       src="https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js"
     ></script>
+    <script>
+      document.addEventListener("haptik_sdk", function () {
+        keys = query_params.keys();
+        custom_data = {};
+        for (const key of keys) {
+          if (key.slice(0, 3) == "cd_")
+            custom_data[key.slice(3)] = query_params.get(key);
+        }
+
+        HaptikSDK.signup(
+          {
+            username: query_params.get("username") || "ABC",
+            auth_id: query_params.get("auth_id") || "2377158",
+            auth_code: query_params.get("auth_code") || "something",
+            mobile_no: query_params.get("mobile_no"),
+            email: query_params.get("email"),
+            custom_data: custom_data,
+          },
+          function (success, error) {
+            if (success) {
+              console.log("SIGNUP REQUEST SUCCEEDED!");
+            } else {
+              console.log("ERROR:", error);
+            }
+          }
+        );
+      });
+    </script>
   </body>
 </html>
